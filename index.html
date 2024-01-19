@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>I made this</title>
+  </head>
+  <body>
+    <script>
+      var offset = 0;
+
+      function appendImage() {
+        var image = document.createElement("img");
+        image.src = "./imadethis.png";
+        image.alt = "I made this";
+        image.style.display = "block";
+        image.style.marginLeft = offset + "px";
+        document.body.appendChild(image);
+        offset += 536;
+      }
+
+      appendImage();
+
+      document.onscroll = function (e) {
+        if (
+          document.scrollingElement.scrollHeight -
+            (window.innerHeight + window.scrollY) <
+          50
+        ) {
+          appendImage();
+        }
+      };
+    </script>
+  </body>
+</html>
